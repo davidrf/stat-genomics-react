@@ -1,6 +1,6 @@
-import autoprefixer from 'autoprefixer';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import webpack from 'webpack';
+import autoprefixer from 'autoprefixer'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import webpack from 'webpack'
 
 export default {
   entry: {
@@ -32,7 +32,7 @@ export default {
         loader: 'babel'
       },
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         loaders: ['style', 'css', 'sass', 'postcss']
       },
       {
@@ -43,7 +43,7 @@ export default {
     ]
   },
   postcss() {
-    return [autoprefixer];
+    return [autoprefixer]
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -55,7 +55,8 @@ export default {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       '__TEST__': JSON.stringify(false),
       '__DEVELOPMENT__': JSON.stringify(true),
-      '__PRODUCTION__': JSON.stringify(false)
+      '__PRODUCTION__': JSON.stringify(false),
+      'STAT_GENOMICS_API_URL': JSON.stringify(process.env.STAT_GENOMICS_API_URL)
     }),
     new HtmlWebpackPlugin({
       template: __dirname + '/src/static/index.tmpl.html'
@@ -72,4 +73,4 @@ export default {
     hot: true,
     inline: true
   }
-};
+}

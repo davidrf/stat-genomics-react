@@ -56,7 +56,7 @@ export default {
       '__TEST__': JSON.stringify(false),
       '__DEVELOPMENT__': JSON.stringify(true),
       '__PRODUCTION__': JSON.stringify(false),
-      'STAT_GENOMICS_API_URL': JSON.stringify(process.env.STAT_GENOMICS_API_URL)
+      'STAT_GENOMICS_API_URL': JSON.stringify('http://localhost:3000')
     }),
     new HtmlWebpackPlugin({
       template: __dirname + '/src/static/index.tmpl.html'

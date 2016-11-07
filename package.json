@@ -8,10 +8,11 @@
   "description": "DRF starter kit for React and Redux applications",
   "main": "webpack.config.js",
   "scripts": {
+    "heroku-postbuild": "npm run production",
+    "production": "NODE_ENV=production node_modules/.bin/webpack",
     "start": "node_modules/.bin/webpack-dev-server",
     "test": "NODE_ENV=test node_modules/.bin/karma start",
-    "test:single-run": "npm run test -- --single-run",
-    "production": "NODE_ENV=production node_modules/.bin/webpack"
+    "test-single-run": "npm run test -- --single-run"
   },
   "author": "",
   "license": "ISC",

@@ -60,7 +60,11 @@ export default {
       template: __dirname + "/src/static/index.tmpl.html"
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    }),
     new ExtractTextPlugin("[name]-[hash].css"),
     new CleanPlugin('build')
   ],

@@ -1,5 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-const Home = () => <h1>Hello World!</h1>;
+const Home = ({ email }) => (
+  <div>
+    <h1>Home page</h1>
+    {email && <h2>Logged in as {email}</h2>}
+  </div>
+)
 
-export default Home;
+export default Home

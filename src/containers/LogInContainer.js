@@ -11,9 +11,9 @@ class LoginContainer extends Component {
   }
 
   static propTypes = {
-    logInUser: PropTypes.func.isRequired,
     isExact: PropTypes.bool.isRequired,
     location: RouterPropTypes.location.isRequired,
+    logInUser: PropTypes.func.isRequired,
     params: PropTypes.object.isRequired,
     pathname: PropTypes.string.isRequired,
     pattern: PropTypes.string.isRequired,
@@ -35,7 +35,11 @@ class LoginContainer extends Component {
   onSubmit = values => {
     return this.props.logInUser(values)
       .then(action => setLocalStorage(action.payload))
-      .then(() => this.context.router.transitionTo('/'))
+      .then(() => {
+        const { state } = this.props.location
+        const path = state ? state.from : '/home-folder'
+        this.context.router.transitionTo(path)
+      })
   }
 
   render() {

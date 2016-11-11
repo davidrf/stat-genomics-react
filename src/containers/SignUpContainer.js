@@ -43,7 +43,7 @@ class SignUpContainer extends Component {
   onSubmit = ({ email, password }) => {
     return this.props.signUpUser({ email, password })
       .then(action => setLocalStorage(action.payload))
-      .then(() => this.context.router.transitionTo('/'))
+      .then(() => this.context.router.transitionTo('/home-folder'))
   }
 
   render() {

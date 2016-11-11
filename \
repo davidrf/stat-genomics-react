@@ -17,8 +17,8 @@ const App = () => (
     <RedirectUnauthenticatedMatch pattern="/home-folder" component={HomeFolderContainer} />
     <Match pattern="/folders/:folderId" render={matchProps => (
       matchProps.pathname === '/folders/new' ?
-        <RedirectUnauthenticatedMatch pattern="/folders/new" component={NewFolderContainer} /> :
-        <RedirectUnauthenticatedMatch pattern="/folders/:folderId" component={FolderContainer} />
+        <RedirectUnauthenticatedMatch pattern="/folders/new" component={HomeFolderContainer} /> :
+        <RedirectUnauthenticatedMatch pattern="/folders/:id" component={NewFolderContainer} />
     )}/>
   </Layout>
 )
